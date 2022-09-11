@@ -2,13 +2,15 @@
 /**
  * main - print a string using puts function
  *
- * return: 0
+ * Return: zero o
  */
+
 int main(void)
+
 {
-	char put[] = "Programming is like building a multilingual puzzle,";
+	char put[] = "\"Programming is like building a multilingual puzzle,";
 
 	puts(put);
-	return (0);
+return (0);
 }
 
