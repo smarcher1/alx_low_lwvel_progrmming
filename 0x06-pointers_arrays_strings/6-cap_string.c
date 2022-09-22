@@ -7,34 +7,25 @@
  */
 char *cap_string(char *str)
 {
-	int i;
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (*(str + i))
 	{
-		if (i == 0)
+		if (*(str + i) >= 'a' && *(str + i) <= 'z')
 		{
-			if ((str[i] >= 97 && str[i] <= 122))
+			if (i == 0)
+				*(str + i) -= 'a' - 'A';
+			else
 			{
-				str[i] = str[i] - 32;
-				continue;
+				for (j = 0; j <= 12; j++)
+			{
+				if (a[j] == *(str + i - 1))
+					*(str + i) -= 'a' - 'A';
+			}
+			}
 		}
+		i++;
 	}
-	else if (str[i] == ' ')
-	{
-		++i;
-		if (str[i] >= 97 && str[i] <= 122)
-		{
-			str[i] = str[i] - 32;
-			continue;
-		}
-	}
-	else
-	{
-		if (str[i] >= 65 && str[i] <= 90)
-		{
-			str[i] = str[i] + 32;
-		}
-	}
-}
-return (str);
+	return (str);
 }
